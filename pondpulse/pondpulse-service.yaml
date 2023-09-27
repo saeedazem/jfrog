@@ -1,0 +1,14 @@
+# a Kubernetes Service of type ClusterIP to expose PondPulse within the cluster.
+# This will give it a stable DNS name that other services can use to communicate 
+# with it
+apiVersion: v1
+kind: Service
+metadata:
+  name: pondpulse-service
+spec:
+  selector:
+    app: pondpulse  # Match labels of your PondPulse Deployment
+  ports:
+  - protocol: TCP
+    port: 80        # The port PondPulse is listening on inside the Pod
+    targetPort: 80  # The port PondPulse is listening on inside the Pod

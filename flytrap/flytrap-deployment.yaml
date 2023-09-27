@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flytrap-deployment
+spec:
+  replicas: 1  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: flytrap
+  template:
+    metadata:
+      labels:
+        app: flytrap
+    spec:
+      containers:
+        - name: flytrap
+          image: saeedazem93/flytrap-image:latest
+          ports:
+            - containerPort: 80

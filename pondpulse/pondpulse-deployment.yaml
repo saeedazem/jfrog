@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pondpulse-deployment
+spec:
+  replicas: 1 # Adjust as needed
+  selector:
+    matchLabels:
+      app: pondpulse
+  template:
+    metadata:
+      labels:
+        app: pondpulse
+    spec:
+      containers:
+      - name: pondpulse
+        image: saeedazem93/pondpulse-image:latest
+        ports:
+        - containerPort: 80

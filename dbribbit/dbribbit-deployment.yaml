@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbribbit-deployment
+spec:
+  replicas: 1  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: dbribbit
+  template:
+    metadata:
+      labels:
+        app: dbribbit
+    spec:
+      containers:
+        - name: dbribbit
+          image: saeedazem93/dbribbit-image:latest
+          ports:
+            - containerPort: 80
